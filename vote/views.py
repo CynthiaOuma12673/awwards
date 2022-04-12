@@ -7,6 +7,12 @@ from django.contrib.auth.models import User
 from .forms import  UpdateUserForm, UpdateUserProfileForm, UserRegisterForm,PostForm,RatingForm
 from .models import Post, Profile, Rating
 import random
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializers import PostSerializer,ProfileSerializer
+from rest_framework import status
+from .permissions import IsAdminOrReadOnly
+from rest_framework import viewsets
 # Create your views here.
 
 def index(request):
@@ -156,3 +162,13 @@ def search_project(request):
         posts = Post.objects.filter(title__icontains=title).all()
 
     return render(request, 'all-votes/search.html', {'posts': posts})
+
+class ProfileViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAdminOrReadOnly,)
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+class PostViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAdminOrReadOnly,)
+    queryset = Post.objects.all()
+    serializer_class =  PostSerializer
