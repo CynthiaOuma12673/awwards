@@ -148,3 +148,11 @@ def profile(request, username):
         profile_form = UpdateUserProfileForm(instance=request.user.profile)
 
     return render(request, 'all-votes/profile.html', {'user_form':user_form,'profile_form':profile_form,'posts':posts,'post_form':post_form})
+
+@login_required(login_url='login')
+def search_project(request):
+    if request.method == 'GET':
+        title = request.GET.get("title")
+        posts = Post.objects.filter(title__icontains=title).all()
+
+    return render(request, 'all-awards/search.html', {'posts': posts})
