@@ -1,4 +1,4 @@
-{%extends 'all-awards/base.html'%}
+{%extends 'all-votes/base.html'%}
 {% load bootstrap4 %}
 {% load static %}
 {% load crispy_forms_tags %}
@@ -10,7 +10,7 @@
     <div class="card">
         <div class="" style="background-image:url( {{post.photo.url}})">
             <img class="card-img-top" style="visibility:hidden" width="100%"
-                 src="{{ post.photo.url }}-/crop/1440x720/center/-/quality/lightest/" alt="{{photo.title}}">
+                    src="{{ post.photo.url }}-/crop/1440x720/center/-/quality/lightest/" alt="{{photo.title}}">
                 <div class="overlay1">
                         
                 </div>
@@ -22,13 +22,11 @@
             <p>{{ post.description }}</p>
             <hr>
             <p class="card-text "> <a href="{% url 'user_profile' post.user.username  %}"><img src="{{post.user.profile.profile_pic.url}}"  alt= "" class="rounded-circle user profile-img">
-                 {{post.user.username|title}} </a><span style="float:right">{{post.upload_date|date}}</span>
+                    {{post.user.username|title}} </a><span style="float:right">{{post.upload_date|date}}</span>
             </p>
             <div class="row mt-5">
                 <div class="col-md-2"></div>
-                <div class="col-md-8 mt-4">
-                    <!-- <h3 class="">Rating Scores</h3> -->
-                   
+                <div class="col-md-8 mt-4">     
                     {% for rating in post.ratings.all %}
                     {% if forloop.counter is post.ratings.all.count %}
                     <a class="btn btn-color btn-sm" ><h5>{{ rating.score }}</h5>
