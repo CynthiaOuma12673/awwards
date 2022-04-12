@@ -43,7 +43,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'vote',
     'cloudinary',
-    'bootstrap4'
+    'bootstrap4',
+    'crispy_forms',
+    'tinymce',
+    'emoji_picker',
+    'social_django',
+    'django_extensions',
+    'phone_field',
+    'rest_framework',
+    'rest_framework.authtoken',
+
 ]
 
 MIDDLEWARE = [
@@ -141,3 +150,19 @@ cloudinary.config(
     api_key = "349849632571232", 
     api_secret = "CXsauSNf_MIPEHMQn4lsNrJv-Sc" 
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+
+]
