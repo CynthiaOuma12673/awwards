@@ -54,16 +54,16 @@ class Post(models.Model):
 
 class Rating(models.Model):
     rating = (
-        (1,'1')
-        (2,'2')
-        (4,'3')
-        (4,'4')
-        (5,'5')
-        (6,'6')
-        (7,'7')
-        (8,'8')
-        (9,'9')
-        (10,'10')
+        (1,'1'),
+        (2,'2'),
+        (4,'3'),
+        (4,'4'),
+        (5,'5'),
+        (6,'6'),
+        (7,'7'),
+        (8,'8'),
+        (9,'9'),
+        (10,'10'),
     )
     usability = models.IntegerField(choices=rating, blank=True, default='1')
     content = models.IntegerField(choices=rating, blank=True,default='1')
