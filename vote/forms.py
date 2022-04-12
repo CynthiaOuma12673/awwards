@@ -23,5 +23,8 @@ class PostForm(forms.ModelForm):
         fields = ('photo', 'title', 'url', 'description', 'technologies_used',)
         
 
+class RatingForm(forms.ModelForm):
+    class Meta:
+        model = Rating
+        fields = ['design', 'usability', 'content']
 
-        
