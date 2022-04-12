@@ -31,3 +31,16 @@ def index(request):
         posts = None
     return render(request, 'all-votes/home.html',{'form':form,'current_user':current_user,'random_post': random_post,'posts':posts})
 
+def register(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    if request.method=="POST":
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            return redirect('login')
+            
+    else:
+        form = UserRegisterForm()
+    return render(request,"registration/register.html",{'form':form})
