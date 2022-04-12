@@ -97,3 +97,25 @@ def project(request, post):
     else:
         form = RatingForm()
     return render(request, 'all-votes/projects.html', {'post': post,'rating_form': form,'rating_status': rating_status,'current_user':current_user,'post_form':post_form})
+
+@login_required(login_url='login')
+def user_profile(request, username):
+    current_user=request.user
+    
+    if request.method == "POST":
+        post_form = PostForm(request.POST,request.FILES)
+        if post_form.is_valid():
+            post = post_form.save(commit=False)
+            post.user = request.user
+            post.save()
+            return HttpResponseRedirect(reverse("home"))
+    else:
+        post_form = PostForm()
+        
+    user_poster = get_object_or_404(User, username=username)
+    if request.user == user_poster:
+        return redirect('profile', username=request.user.username)
+    user_posts = user_poster.posts.all()
+    
+    
+    return render(request, 'all-votes/poster.html', {'user_poster': user_poster,'user_posts':user_posts,'post_form':post_form,'current_user':current_user})
