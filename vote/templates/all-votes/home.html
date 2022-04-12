@@ -48,6 +48,7 @@
             <div class="text-center">
                 <h1> <a href="{% url 'project' random_post.title %}" class="text-white">{{random_post.title|title}}</a></h1>
                 <h5 class="pt-2">By  <span><a href="{% url 'user_profile' random_post.user.username  %}" class="link-color">{{random_post.user.username|title}}</a></span></h5>
+                <a style="align-items: center;" href="{{random_post.url}}" class="btn btn-success radius m-5">View Site</a>
             </div>
             
             <div class="row">
@@ -74,9 +75,8 @@
                     {% endif %}
                     {% endfor %}
                 </div>
-                <div class="col-md-3"></div>
             </div>
-            <a href="{{random_post.url}}" class="btn btn-success radius m-5">Visit Site</a>
+            
     </div>
         
     </div>

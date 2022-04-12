@@ -2,7 +2,7 @@
     <div class="navbar sticky-top bg-light navbar-light navbar-expand-lg">
     <nav class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">
-        <img src="{% static 'photos/award.png' %}" alt="" width="40" height="40">
+        <img src="{% static 'photos/logo.jpg' %}" alt="" width="40" height="40">
         <span class="navbar-text">
             Awwards App
         </span>
@@ -20,7 +20,7 @@
 
             {% if user.is_authenticated %}
             <li class="nav-item active">
-                <a data-toggle="modal" data-target="#post-upload" class=" btn btn-sm btn-color site mr-2"> SUMBIT YOUR SITE!</a>
+                <a data-toggle="modal" data-target="#post-upload" class=" btn btn-sm btn-color site mr-2"> SUBMIT YOUR SITE!</a>
             </li>
             <li class="nav-item active">
             <a href="/api" class=" btn btn-sm btn-color site mr-2"> API</a>
