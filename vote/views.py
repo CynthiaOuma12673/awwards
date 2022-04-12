@@ -155,4 +155,4 @@ def search_project(request):
         title = request.GET.get("title")
         posts = Post.objects.filter(title__icontains=title).all()
 
-    return render(request, 'all-awards/search.html', {'posts': posts})
+    return render(request, 'all-votes/search.html', {'posts': posts})
