@@ -9,7 +9,7 @@ This application is a site where users can register and add their github reposit
 
 
 ## App Layout
-![Landing page photo](https://github.com/CynthiaOuma12673/myInstagramapp/blob/master/media/images/Screenshot%20from%202022-04-04%2016-24-12.png)
+![Landing page photo](https://github.com/CynthiaOuma12673/awwards/blob/master/media/images/Screenshot%20from%202022-04-12%2019-57-22.png)
 
 ## User Stories
 As a user of the application I should be able to:
